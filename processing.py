@@ -38,7 +38,7 @@ vectors = re.findall(vector_regex, source_code)
 num_vectors = len(vectors)
 print("Found " + str(num_vectors) + " vectors")
 enumeration = list(range(num_vectors))
-modified_source_code = re.sub(vector_regex, lambda match: "vector"+str(enumeration.pop(0))+"<", source_code)
+modified_source_code = re.sub(vector_regex, lambda match: "vector"+str(enumeration.pop(0))+"<", source_code, count=num_vectors-1)
 for e in range(num_vectors):
     modified_file.write("#include \""+tcc_directory+"/"+"vector"+str(e)+"\"\n")
 modified_file.write(modified_source_code)
