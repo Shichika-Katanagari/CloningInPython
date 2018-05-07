@@ -31,7 +31,7 @@ modified_file_name = source_file_name.split(".")[0] + "_modified.cc"
 vector_regex = re.compile("(vector)(\s*<)")
 source_file = open(source_file_name, "r")
 modified_file = open(modified_file_name, "w+")
-#Irregardless of multiple containers or not; we generate unique functions to map functions back to a container
+
 #We do not handle comments (ie. //vector<int> v) will yield an additional tcc file
 source_code = source_file.read()
 vectors = re.findall(vector_regex, source_code)
